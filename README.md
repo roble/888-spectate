@@ -6,9 +6,21 @@ Technical test for Senior Front-end role at 888 Spectate.
 
 You can see it running online by clicking [here](https://roble.github.io/888-spectate).
 
-To see the project running in your machine, just open the file ***index.html*** which is in the ***'[src](./src)'*** folder.
+All files are inside the ***'[src](./src)'*** folder. 
 
-All other files are inside the ***src*** folder
+#### Folder structure
+
+* [src/](./src) - Source code
+  * [assets/](./src/assets) - CSS and favicon
+* [tests/](./tests) - tests files
+
+if you open the index.html directly in your browser, you will get a CORS error, you will be able to see the page but it is not goind to work properly. it will happen becouse the javascript files is in separate files and any modern browser will block it. All needed information is on the link below: 
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp#what_went_wrong
+
+The error: 
+
+![image](https://user-images.githubusercontent.com/3231587/183474257-55cbbde9-aa91-4302-a93f-ca7af71de434.png)
 
 ## Optional requirements
 
@@ -23,6 +35,3 @@ This project has ***no dependencies***, however, to be able to run the ***unit t
 | `npm install`    | Install project dependencies                                                    |
 | `npm run start`  | Start the HTTP server on http://localhost:8080                                  |
 | `npm run test`   | Run the unit tests                                                              |
-
-
-
