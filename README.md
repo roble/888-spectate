@@ -12,7 +12,7 @@ All other files are inside the ***src*** folder
 
 ## Optional requirements
 
-This project has ***no dependencies***, however, to be able to run the ***unit tests*** or use an HTTP server, you will need to install the following dependencies:
+This project has ***no dependencies***, however, to be able to run the ***unit tests*** or use an HTTP server (used for local tests or generating Lighthouse test reports), you will need to install the following dependencies:
 
 [Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
 
