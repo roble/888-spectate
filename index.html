@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>888 - Spectate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="888Spectate is a website that allows you to spectate the games of the world's best players."
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="assets/css/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="assets/css/style.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <script type="module" src="functions.js"></script>
+    <script type="module" src="main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header-logo">
+          <a class="header-link" href="index.html" title="Home">
+            Lotto & Bitcoin
+          </a>
+        </div>
+        <div class="ribbon" data-text="NEW"></div>
+      </header>
+    </div>
+    <div class="container main-content">
+      <aside class="panel sidebar">
+        <h1 class="panel-title">The Irish Lotto</h1>
+        <div class="panel-content">
+          <p>
+            Since 16th April 1988, the Irish Lotto draw takes place every
+            Saturday at 8pm. On 30th May 1990 an additional Wednesday evening
+            draw was introduced.
+          </p>
+          <p>
+            What would EUR 100 in winnings invested on a draw date be worth in
+            Euro now?
+          </p>
+          <p>
+            Enter a date and time in the form to get the next draw date and
+            time, with the current value of your investment.
+          </p>
+        </div>
+      </aside>
+      <main class="main">
+        <section class="panel">
+          <h2 class="panel-title">
+            <label for="date">Enter a Date and Time</label>
+          </h2>
+          <div class="panel-content">
+            <div class="form-content">
+              <div class="form-control">
+                <input
+                  type="datetime-local"
+                  name="date"
+                  id="date"
+                  class="datetime-picker"
+                />
+              </div>
+              <div class="form-control">
+                <input
+                  id="submit"
+                  class="btn btn-primary"
+                  type="button"
+                  value="SUBMIT"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="panel">
+          <div id="table_container" class="table-container-scrollable">
+            <table id="table_records" class="table">
+              <thead class="table-header">
+                <tr>
+                  <th nowrap width="1%">DRAW DATE/TIME</th>
+                  <th nowrap>YOUR BITCOIN'S VALUE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="table_no_records">
+                  <td colspan="2" class="table-divider">No results found.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

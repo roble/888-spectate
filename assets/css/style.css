@@ -1,0 +1,276 @@
+/** CSS Variables */
+:root {
+  --color-primary: #fa6200;
+  --color-primary-darker: #b35313;
+  --color-dark: #272727;
+  --color-darker: #000000;
+  --text-color: #fff;
+  --background-color: #4a4a4a;
+  --table-container-height: 410px;
+}
+
+/** General elements */
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  padding: 20px;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+p {
+  margin-bottom: 18px;
+}
+
+/** Display none helper */
+.display-none {
+  display: none;
+}
+
+/** Form control */
+.form-control {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 18px;
+  height: 36px;
+}
+.form-control:nth-last-child(1) {
+  margin-bottom: 0;
+}
+
+/** Date picker */
+.datetime-picker {
+  width: 100%;
+  padding: 8px 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+  outline: none;
+  height: 100%;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid #c8d6d9;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  margin: 0;
+  vertical-align: baseline;
+  min-width: 260px;
+}
+
+/** Button */
+.btn {
+  width: 100%;
+  padding: 8px 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+  transition: background 0.3s ease-in-out;
+  font-size: 16px;
+  color: var(--text-color);
+  outline: none;
+  border: 1px solid transparent;
+  height: 100%;
+}
+.btn-primary {
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+.btn-primary:hover,
+.btn-primary:active {
+  background: var(--color-primary-darker);
+  border-color: var(--color-primary-darker);
+}
+.btn:disabled {
+  background: #4b4b4b;
+  border-color: #4b4b4b;
+}
+
+/** Container */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/** Header */
+.header {
+  background-color: var(--color-darker);
+  padding: 0 36px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.header-logo {
+  font-size: 24px;
+}
+.header-logo:hover .header-link {
+  color: var(--color-primary);
+}
+
+/** Panel */
+.panel {
+  background-color: var(--color-dark);
+  margin-top: 10px;
+}
+.panel-title {
+  background-color: var(--color-darker);
+  padding: 10px 16px;
+  font-size: 16px;
+}
+.panel-content {
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/** Table container */
+.table-container-scrollable {
+  overflow: auto;
+  max-height: var(--table-container-height);
+}
+
+/** Table */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 18px;
+  text-align: left;
+}
+.table th {
+  background-color: var(--color-darker);
+}
+.table tr {
+  transition: all 0.3s ease-in-out;
+  background-color: #191919;
+}
+.table tr th,
+.table tr td {
+  padding: 10px;
+  text-align: left;
+}
+.table tr td {
+  border-bottom: 1px solid var(--color-darker);
+  position: relative;
+}
+.table tr td::after {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 1px;
+  background-color: var(--color-darker);
+  right: 0;
+}
+.table tr td:last-child::after {
+  width: 0;
+}
+.table tr td.price-value {
+  content: var(--prefix);
+}
+.table tr:nth-child(even) {
+  background-color: #202020;
+}
+.table tr:hover {
+  background-color: #2e2e2e;
+}
+.table tr.new-row {
+  transform-origin: 50% 0;
+  -webkit-animation: append-animated 1s ease-in-out;
+  animation: append-animated 1s ease-in-out;
+}
+
+/** Ribbon */
+.ribbon {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  right: 0;
+  top: 0;
+}
+.ribbon::before {
+  content: attr(data-text);
+  font: 15px;
+  font-weight: bolder;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 3px 40px 3px;
+  transform: translate(29.29%, -100%) rotate(45deg);
+  transform-origin: bottom left;
+  background: var(--color-primary);
+}
+
+/** Animations */
+@keyframes append-animated {
+  0% {
+    background: var(--color-primary);
+    color: var(--text-color);
+    opacity: 0;
+  }
+  100% {
+    background: inherit;
+    color: inherit;
+    opacity: 1;
+  }
+}
+/** Desktop changes */
+@media (min-width: 600px) {
+  body {
+    padding: 40px;
+  }
+  .form-content {
+    display: flex;
+    flex-direction: row;
+  }
+  .form-control {
+    width: unset;
+    margin-right: 20px;
+  }
+  .main-content {
+    display: flex;
+    /** add the small left and right indents */
+    padding: 0 5px;
+  }
+  .main-content .sidebar {
+    max-width: 290px;
+    margin-right: 10px;
+    min-height: var(--table-container-height);
+    flex: 1;
+  }
+  .main-content .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .main-content .main .panel:last-of-type {
+    flex: 1;
+  }
+}
+/** Tablet changes */
+@media (min-width: 600px) and (max-width: 768px) {
+  .form-control {
+    width: 100%;
+  }
+  .form-content {
+    flex-direction: column;
+  }
+}
+/** Mobile changes */
+@media (max-width: 600px) {
+  .table-container-scrollable {
+    min-height: var(--table-container-height);
+  }
+}
