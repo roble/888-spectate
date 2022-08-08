@@ -64,6 +64,12 @@ p {
   margin: 0;
   vertical-align: baseline;
   min-width: 260px;
+  transition: all 0.3s ease-in-out;
+}
+
+.datetime-picker:hover,
+.datetime-picker:active {
+  background-color: #c8d6d9;
 }
 
 /** Button */
