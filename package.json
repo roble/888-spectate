@@ -4,10 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "http-server ./src -p 8080",
-    "deploy": "gh-pages -d src",
-    "test": "jest",
-    "test-watch": "jest --watchAll"
+    "deploy": "gh-pages -d src"
   },
   "repository": {
     "type": "git",
