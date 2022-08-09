@@ -1,12 +1,3 @@
-import {
-  fetchBitcoinPrice,
-  fetchCurrentBitcoinPrice,
-  calculatePrice,
-  formatCurrency,
-  formatDatetime,
-  getNextLottoDraw,
-} from "./functions.js";
-
 // variables
 const amountEur = 100.0;
 let currentBitcoinPrice = 0;
