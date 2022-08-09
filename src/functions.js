@@ -1,6 +1,12 @@
-export const isValidDate = (date) => {
+/**
+ * Check whether a given value is a date or not
+ *
+ * @param {Date} date
+ * @returns
+ */
+function isValidDate(date) {
   return date instanceof Date && !isNaN(date.getTime());
-};
+}
 
 /**
  * Get the next date of the given day of the week
@@ -9,7 +15,7 @@ export const isValidDate = (date) => {
  * @param {Date} date
  * @returns Date
  */
-export const getNextDateFromDayOfWeek = (dayOfWeek, inputDate = new Date()) => {
+function getNextDateFromDayOfWeek(dayOfWeek, inputDate = new Date()) {
   if (
     dayOfWeek === undefined ||
     dayOfWeek === null ||
@@ -28,7 +34,7 @@ export const getNextDateFromDayOfWeek = (dayOfWeek, inputDate = new Date()) => {
   );
 
   return nextDay;
-};
+}
 
 /**
  * Get the next lotto draw
@@ -36,7 +42,7 @@ export const getNextDateFromDayOfWeek = (dayOfWeek, inputDate = new Date()) => {
  * @param {Date} date
  * @returns Date
  */
-export const getNextLottoDraw = (inputDate = new Date()) => {
+function getNextLottoDraw(inputDate = new Date()) {
   if (!isValidDate(inputDate))
     throw new Error("Date must be a valid date object");
 
@@ -67,34 +73,36 @@ export const getNextLottoDraw = (inputDate = new Date()) => {
   }
 
   return setDrawHour(nextDrawDay);
-};
+}
 
 /**
  * Fetch the current bitcoin price
  *
  * @returns Promise<Number>
  */
-export const fetchCurrentBitcoinPrice = async () => {
+async function fetchCurrentBitcoinPrice() {
   const endpoint = "https://api.coingecko.com/api/v3/simple/price?";
   const args = new URLSearchParams({
     ids: "bitcoin",
     vs_currencies: "eur",
   });
+
   const response = await fetch(`${endpoint}${args}`);
 
-  if (response.status !== 200)
+  if (response.status !== 200) {
     throw new Error("Failed to fetch the current bitcoin price");
+  }
 
   const data = await response.json();
   return data?.bitcoin?.eur || 0;
-};
+}
 
 /**
  * Fetch the current bitcoin price
  *
  * @returns Promise<Number>
  */
-export const fetchBitcoinPrice = async (date = new Date()) => {
+async function fetchBitcoinPrice(date = new Date()) {
   if (date instanceof Date === false)
     throw new Error("date must be a Date object");
 
@@ -105,15 +113,15 @@ export const fetchBitcoinPrice = async (date = new Date()) => {
     date: formattedDate,
   });
 
-  return new Promise(async (resolve, reject) => {
-    const response = await fetch(`${endpoint}${args}`);
-    if (response.status !== 200)
-      throw new Error("Failed to fetch bitcoin price");
+  const response = await fetch(`${endpoint}${args}`);
 
-    const data = await response.json();
-    return resolve(data?.market_data?.current_price?.eur || 0);
-  });
-};
+  if (response.status !== 200) {
+    throw new Error("Failed to fetch bitcoin price");
+  }
+
+  const data = await response.json();
+  return data?.market_data?.current_price?.eur || 0;
+}
 
 /**
  * Format the given value to a currency string
@@ -121,14 +129,14 @@ export const fetchBitcoinPrice = async (date = new Date()) => {
  * @param {Number} value
  * @returns string
  */
-export const formatCurrency = (value) => {
+function formatCurrency(value) {
   const formatter = new Intl.NumberFormat("en-GB", {
     style: "currency",
     currency: "EUR",
   });
 
   return formatter.format(value);
-};
+}
 
 /**
  * Left pad the given number with zeros
@@ -137,9 +145,9 @@ export const formatCurrency = (value) => {
  * @param {Number} size
  * @returns string
  */
-export const numLeftPad = (num, size = 2) => {
+function numLeftPad(num, size = 2) {
   return num.toString().padStart(size, "0");
-};
+}
 
 /**
  * Format the given date to a string
@@ -147,13 +155,13 @@ export const numLeftPad = (num, size = 2) => {
  * @param {Date} date
  * @returns string | format: dd-MM-yyyy
  */
-export const formatDate = (date) => {
+function formatDate(date) {
   const day = numLeftPad(date.getDate());
   const month = numLeftPad(date.getMonth() + 1);
   const year = date.getFullYear();
 
   return `${day}-${month}-${year}`;
-};
+}
 
 /**
  * Format the given date to a time string
@@ -161,12 +169,12 @@ export const formatDate = (date) => {
  * @param {Date} value
  * @returns string | format: HH:mm
  */
-export const formatTime = (date) => {
+function formatTime(date) {
   const hour = numLeftPad(date.getHours());
   const mins = numLeftPad(date.getMinutes());
 
   return `${hour}:${mins}`;
-};
+}
 
 /**
  * Format the given date to a datetime string
@@ -174,9 +182,9 @@ export const formatTime = (date) => {
  * @param {Date} value
  * @returns string | format: dd-MM-yyyy HH:mm
  */
-export const formatDatetime = (date) => {
+function formatDatetime(date) {
   return formatDate(date) + " " + formatTime(date);
-};
+}
 
 /**
  * Calculate the percentage of profit or loss
@@ -188,7 +196,7 @@ export const formatDatetime = (date) => {
  * @param {Number} amount
  * @returns Number
  */
-export const calculatePrice = (currentPrice, datePrice, amount) => {
+function calculatePrice(currentPrice, datePrice, amount) {
   const percent = amount / datePrice;
   return currentPrice * percent;
-};
+}

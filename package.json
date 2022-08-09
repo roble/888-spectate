@@ -8,7 +8,7 @@
     "deploy": "gh-pages -d src",
     "test": "jest",
     "test-watch": "jest --watchAll"
-  }, 
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/roble/888-spectate.git"
@@ -25,10 +25,6 @@
   },
   "homepage": "https://github.com/roble/888-spectate#readme",
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.18.6",
-    "@types/jest": "^28.1.6",
-    "gh-pages": "^4.0.0",
-    "http-server": "^14.1.1",
-    "jest": "^28.1.3"
+    "gh-pages": "^4.0.0"
   }
 }
