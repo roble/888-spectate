@@ -6,7 +6,7 @@ Technical test for Senior Front-end role at 888 Spectate.
 
 You can see it running online by clicking [here](https://roble.github.io/888-spectate).
 
-All files are inside the ***'[src](./src)'*** folder. 
+All source files are inside the ***'[src](./src)'*** folder. 
 
 #### Folder structure
 
@@ -14,7 +14,7 @@ All files are inside the ***'[src](./src)'*** folder.
   * [assets/](./src/assets) - CSS and favicon
 * [tests/](./tests) - tests files
 
-if you open the index.html directly in your browser, you will get a CORS error, you will be able to see the page but it is not goind to work properly. it will happen becouse the javascript files is in separate files and any modern browser will block it. All needed information is on the link below: 
+If you open the index.html directly in your browser, you will get a CORS error, you will be able to see the page but it is not going to work properly. it will happen because the javascript files are separated and any modern browser will block them for security reasons. All needed information is on the link below: 
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp#what_went_wrong
 
@@ -24,7 +24,7 @@ The error:
 
 ## Optional requirements
 
-This project has ***no dependencies***, however, to be able to run the ***unit tests*** or use an HTTP server (used for local tests or generating Lighthouse test reports), you will need to install the following dependencies:
+This project has ***no dependencies*** unless you want to run the ***unit tests*** or use an HTTP server (used for local tests or generating LightHouse test reports), you will need to install the following dependencies:
 
 [Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
 
